@@ -1,6 +1,6 @@
 package coolgame;
 
-import mypanel.*;
+import gamepanel.*;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 public class CoolGame{
 
 	private JFrame frame;
-	private MyPanel gamepanel;
+	private GamePanel gamepanel;
 
 	private int coords[] = {10, 120, 200};
 
@@ -31,6 +31,8 @@ public class CoolGame{
 	public void start(){
 		frame.setSize(800, 600);
         frame.setVisible(true);
+        gamepanel = new GamePanel(coords, 800, 600);
+        frame.add(gamepanel);
 		Timer timer = new Timer();
 		timer.schedule(new IterateGameTask(), 1000, 100);
 	}
@@ -39,9 +41,7 @@ public class CoolGame{
 		coords[0]++;
 		coords[1]++;
 		coords[2] += 2;
-        MyPanel panel = new MyPanel(coords);
-        frame.add(panel);
-		frame.setVisible(true);
+		gamepanel.repaint();
 	}
 
 }

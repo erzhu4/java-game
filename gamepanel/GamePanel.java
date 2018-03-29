@@ -1,14 +1,14 @@
-package mypanel;
+package gamepanel;
 
 import javax.swing.JPanel;
 import java.awt.Graphics;
 
-public class MyPanel extends JPanel {
+public class GamePanel extends JPanel {
 
 	private int[] list;
 
-	public MyPanel(int[] arr){
-		setSize(500, 500);
+	public GamePanel(int[] arr, int width, int height){
+		setSize(width, height);
 		list = arr;
 	}
 
