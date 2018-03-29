@@ -24,3 +24,6 @@ public class Base {
 	}
 
 }
+
+//delete compiled files
+// find . -type f -path "./*" -name "*.class" -delete
