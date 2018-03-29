@@ -8,8 +8,6 @@ import java.awt.Graphics;
 
 public class GamePanel extends JPanel {
 
-	private int[] list;
-
 	private ArrayList<GameObject> GameObjects;
 
 	public GamePanel(ArrayList<GameObject> Objects, int width, int height){

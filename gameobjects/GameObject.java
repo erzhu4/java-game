@@ -17,4 +17,8 @@ public class GameObject {
 		position[1] += velocity[1];
 	}
 
+	public void checkColide(){
+
+	}
+
 }
