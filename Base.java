@@ -1,5 +1,3 @@
-import derp.Derp;
-import dog.Dog;
 import coolgame.*;
 // import mycanvas.*;
 
