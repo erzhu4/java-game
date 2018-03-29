@@ -1,6 +1,4 @@
-package enemy;
-
-import gameobjects.*;
+package gameobjects;
 
 public class Enemy extends GameObject {
 

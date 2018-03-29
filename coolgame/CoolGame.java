@@ -2,7 +2,6 @@ package coolgame;
 
 import gamepanel.*;
 import gameobjects.*;
-import enemy.*;
 
 import java.util.Random;
 import java.util.ArrayList;

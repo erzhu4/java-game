@@ -1,5 +1,4 @@
 import coolgame.*;
-// import mycanvas.*;
 
 import javax.swing.JFrame;
 
