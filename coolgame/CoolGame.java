@@ -62,8 +62,6 @@ public class CoolGame{
 		}
 	}
 
-
-
 	private void iterateGame(){
 		for (int i = 0; i < GameObjects.size(); i++){
 			GameObjects.get(i).move();
