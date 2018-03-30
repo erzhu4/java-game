@@ -14,8 +14,9 @@ public class CoolGame{
 	private JFrame frame;
 	private GamePanel gamepanel;
 
-	private int width = 800;
-	private int height = 600;
+	public int width = 800;
+	public int height = 600;
+
 	private int numOfEnemies = 15;
 	private int gameFPS = 32;
 
@@ -72,8 +73,7 @@ public class CoolGame{
 			Random rand = new Random();
 			enemies.add(new Enemy(
 					new int[]{rand.nextInt(width),10}, 
-					new int[]{0,rand.nextInt(3) + 1},
-					height
+					new int[]{0,rand.nextInt(3) + 1}
 				)
 			);
 		}

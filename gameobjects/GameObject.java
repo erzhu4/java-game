@@ -2,7 +2,7 @@ package gameobjects;
 
 import coolgame.*;
 
-public class GameObject {
+public class GameObject implements GameMovableElement  {
 
 	public int[] position;
 	public int[] velocity;
@@ -19,12 +19,6 @@ public class GameObject {
 		position[1] += velocity[1];
 	}
 
-	public void destroy(){
-
-	}
-
-	public void checkColide(CoolGame game){
-
-	}
+	public void checkColide(CoolGame game){}
 
 }
