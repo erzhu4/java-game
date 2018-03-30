@@ -3,8 +3,6 @@ package coolgame;
 import gamepanel.*;
 import gameobjects.*;
 
-import java.awt.event.*;
-
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -12,7 +10,7 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
-public class CoolGame implements KeyListener {
+public class CoolGame {
 
 	public JFrame frame;
 	private GamePanel gamepanel;
@@ -38,20 +36,9 @@ public class CoolGame implements KeyListener {
 	   	}
 	}
 
-	public void keyPressed(KeyEvent e){
-		// System.out.println("action performed");
-	}
-
-	public void keyReleased(KeyEvent e){
-		// System.out.println("released");
-	}
-
-	public void keyTyped(KeyEvent e){}
-
 	
 	public CoolGame(JFrame jframe){
 		this.frame = jframe;
-		this.frame.addKeyListener(this);
 	}
 
 	public void start(){
