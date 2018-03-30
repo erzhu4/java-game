@@ -5,6 +5,7 @@ import gameobjects.*;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import java.awt.Graphics;
+import java.awt.Color;
 
 public class GamePanel extends JPanel {
 
@@ -17,10 +18,11 @@ public class GamePanel extends JPanel {
 		enemiesArr = enemies;
 		lasersArr = lasers;
 		shipsArr = ships;
+		setBackground(Color.BLACK);
 	}
 
 	public void paint(Graphics g){
-
+		g.setColor(Color.white);
 		for (int i = 0; i < enemiesArr.size(); i++){
 			g.drawOval(
 				enemiesArr.get(i).position[0], 
