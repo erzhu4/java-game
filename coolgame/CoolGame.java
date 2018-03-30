@@ -106,8 +106,12 @@ public class CoolGame implements KeyListener {
 
 	private void iterateGame(){
 		for (int i = 0; i < this.enemies.size(); i++){
-			this.enemies.get(i).checkColide();
 			this.enemies.get(i).move();
+			this.enemies.get(i).checkColide();
+		}
+		for (int i = 0; i < this.ship.size(); i++){
+			this.ship.get(i).checkColide();
+			this.ship.get(i).move();
 		}
 		fillEnemies();
 		this.gamepanel.repaint();

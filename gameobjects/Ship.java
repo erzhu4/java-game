@@ -6,8 +6,6 @@ import java.awt.event.*;
 
 public class Ship extends GameObject implements KeyListener {
 
-	private int speed = 2;
-
 	public Ship(int[] startPositionArg, CoolGame gameArg){
 		super(startPositionArg, new int[]{0,0}, new int[]{40,40}, gameArg);
 		gameArg.frame.addKeyListener(this);
@@ -15,24 +13,64 @@ public class Ship extends GameObject implements KeyListener {
 
 	public void keyPressed(KeyEvent e){
 		char key = e.getKeyChar();
-		if (key == 'a'){
-			System.out.println("go left");
-		} else if (key == 'd'){
-			System.out.println("go right");
-		} else if (key == ' '){
+		int keyInt = e.getKeyCode();
+		// if (key == 'a'){
+		// 	this.velocity[0] = -2;
+		// } else if (key == 'd'){
+		// 	this.velocity[0] = 2;
+		// } else if (key == ' '){
+		// 	System.out.println("SHOOT!!!");
+		// }
+		switch (keyInt){
+			case 39:
+				this.velocity[0] = 4;
+				break;
+			case 37:
+				this.velocity[0] = -4;
+				break;
+		}
+		if (key == ' '){
 			System.out.println("SHOOT!!!");
 		}
+
 	}
 
 	public void keyReleased(KeyEvent e){
-		// System.out.println("ship released");
+		int keyInt = e.getKeyCode();
+		switch (keyInt){
+			case 39:
+				if (this.velocity[0] > 0){
+					this.velocity[0] = 0;
+				}
+				break;
+			case 37:
+				if (this.velocity[0] < 0){
+					this.velocity[0] = 0;	
+				}
+				break;
+		}
 	}
 
 	public void keyTyped(KeyEvent e){}
 
 
 	public void checkColide(){
-		
+		if (this.position[0] > this.game.width - this.size[0]){
+			this.position[0] -= this.size[0] / 4;
+			stop();
+		} else if (this.position[0] < this.size[0]){
+			this.position[0] += this.size[0] / 4;
+			stop();
+		}
+	}
+
+	private void stop(){
+		this.velocity[0] = 0;
+		this.velocity[1] = 0;
+	}
+
+	private void fireLaser(){
+
 	}
 
 }
