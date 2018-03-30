@@ -23,14 +23,14 @@ public class Ship extends GameObject implements KeyListener {
 		// }
 		switch (keyInt){
 			case 39:
-				this.velocity[0] = 4;
+				this.velocity[0] = 6;
 				break;
 			case 37:
-				this.velocity[0] = -4;
+				this.velocity[0] = -6;
 				break;
 		}
 		if (key == ' '){
-			System.out.println("SHOOT!!!");
+			fireLaser();
 		}
 
 	}
@@ -70,7 +70,7 @@ public class Ship extends GameObject implements KeyListener {
 	}
 
 	private void fireLaser(){
-
+		this.game.createLaser(new int[]{this.position[0] + (this.size[0] / 2), this.position[1]}, this.velocity[0] / 2);
 	}
 
 }

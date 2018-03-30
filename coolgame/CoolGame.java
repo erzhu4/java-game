@@ -23,9 +23,9 @@ public class CoolGame implements KeyListener {
 	private int numOfEnemies = 15;
 	private int gameFPS = 32;
 
-	private ArrayList<GameObject> enemies = new ArrayList<GameObject>();
-	private ArrayList<GameObject> ship = new ArrayList<GameObject>();
-	private ArrayList<GameObject> lasers = new ArrayList<GameObject>();
+	public ArrayList<GameObject> enemies = new ArrayList<GameObject>();
+	public ArrayList<GameObject> ship = new ArrayList<GameObject>();
+	public ArrayList<GameObject> lasers = new ArrayList<GameObject>();
 
 	private int counter = 0;
 
@@ -73,6 +73,15 @@ public class CoolGame implements KeyListener {
 		this.lasers.remove(laser);
 	}
 
+	public void createLaser(int[] position, int xVelocity){
+		this.lasers.add(new Laser(
+				position,
+				xVelocity,
+				this
+			)
+		);
+	}
+
 	private void setUpGame(){
 		fillEnemies();
 		createShip();
@@ -110,8 +119,12 @@ public class CoolGame implements KeyListener {
 			this.enemies.get(i).checkColide();
 		}
 		for (int i = 0; i < this.ship.size(); i++){
-			this.ship.get(i).checkColide();
 			this.ship.get(i).move();
+			this.ship.get(i).checkColide();
+		}
+		for (int i = 0; i < this.lasers.size(); i++){
+			this.lasers.get(i).move();
+			this.lasers.get(i).checkColide();
 		}
 		fillEnemies();
 		this.gamepanel.repaint();
