@@ -73,7 +73,8 @@ public class CoolGame{
 			Random rand = new Random();
 			enemies.add(new Enemy(
 					new int[]{rand.nextInt(width),10}, 
-					new int[]{0,rand.nextInt(3) + 1}
+					new int[]{0,rand.nextInt(3) + 1},
+					this
 				)
 			);
 		}
@@ -82,7 +83,7 @@ public class CoolGame{
 	private void iterateGame(){
 		for (int i = 0; i < enemies.size(); i++){
 			enemies.get(i).move();
-			enemies.get(i).checkColide(this);
+			enemies.get(i).checkColide();
 		}
 		fillEnemies();
 		gamepanel.repaint();

@@ -8,10 +8,13 @@ public class GameObject implements GameMovableElement  {
 	public int[] velocity;
 	public int[] size;
 
-	public GameObject(int[] startPositionArg, int[] velocityArg, int[] sizeArg){
+	protected CoolGame game;
+
+	public GameObject(int[] startPositionArg, int[] velocityArg, int[] sizeArg, CoolGame gameArg){
 		position = startPositionArg;
 		velocity = velocityArg;
 		size = sizeArg;
+		game = gameArg;
 	}
 
 	public void move(){
@@ -19,6 +22,6 @@ public class GameObject implements GameMovableElement  {
 		position[1] += velocity[1];
 	}
 
-	public void checkColide(CoolGame game){}
+	public void checkColide(){}
 
 }
