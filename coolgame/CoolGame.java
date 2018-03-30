@@ -19,7 +19,9 @@ public class CoolGame{
 	private int numOfEnemies = 15;
 	private int gameFPS = 32;
 
-	private ArrayList<GameObject> GameObjects = new ArrayList<GameObject>();
+	private ArrayList<GameObject> enemies = new ArrayList<GameObject>();
+	private ArrayList<GameObject> ship = new ArrayList<GameObject>();
+	private ArrayList<GameObject> lasers = new ArrayList<GameObject>();
 
 	private int counter = 0;
 
@@ -41,19 +43,34 @@ public class CoolGame{
         frame.setVisible(true);
 
 		setUpGame();
-
-        gamepanel = new GamePanel(GameObjects, width + 50, height);
+        gamepanel = new GamePanel(enemies, lasers, ship, width + 50, height);
         frame.add(gamepanel);
 		Timer timer = new Timer();
 		timer.schedule(new IterateGameTask(), 1000, 1000/gameFPS);
 	}
 
+	public void removeEnemy(GameObject enemy){
+		enemies.remove(enemy);
+	}
+
+	public void removeLaser(GameObject laser){
+		lasers.remove(laser);
+	}
+
 	private void setUpGame(){
+		fillEnemies();
+	}
 
-		for (int i = 0; i < numOfEnemies; i++){
+	private void fillEnemies(){
+		int missingEnemies = numOfEnemies - enemies.size();
+
+		if (missingEnemies <= 0){
+			return;
+		}
+
+		for (int i = 0; i < missingEnemies; i++){
 			Random rand = new Random();
-
-			GameObjects.add(new Enemy(
+			enemies.add(new Enemy(
 					new int[]{rand.nextInt(width),10}, 
 					new int[]{0,rand.nextInt(3) + 1},
 					height
@@ -63,10 +80,11 @@ public class CoolGame{
 	}
 
 	private void iterateGame(){
-		for (int i = 0; i < GameObjects.size(); i++){
-			GameObjects.get(i).move();
-			GameObjects.get(i).checkColide();
+		for (int i = 0; i < enemies.size(); i++){
+			enemies.get(i).move();
+			enemies.get(i).checkColide(this);
 		}
+		fillEnemies();
 		gamepanel.repaint();
 	}
 

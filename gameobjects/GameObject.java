@@ -1,5 +1,7 @@
 package gameobjects;
 
+import coolgame.*;
+
 public class GameObject {
 
 	public int[] position;
@@ -17,7 +19,11 @@ public class GameObject {
 		position[1] += velocity[1];
 	}
 
-	public void checkColide(){
+	public void destroy(){
+
+	}
+
+	public void checkColide(CoolGame game){
 
 	}
 
