@@ -60,6 +60,7 @@ public class CoolGame{
 
 	private void setUpGame(){
 		fillEnemies();
+		createShip();
 	}
 
 	private void fillEnemies(){
@@ -78,6 +79,14 @@ public class CoolGame{
 				)
 			);
 		}
+	}
+
+	private void createShip(){
+		ship.add(new Ship(
+				new int[]{width / 2, height - 75},
+				this
+			)
+		);
 	}
 
 	private void iterateGame(){

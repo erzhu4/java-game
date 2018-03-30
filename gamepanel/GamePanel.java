@@ -32,19 +32,19 @@ public class GamePanel extends JPanel {
 
 		for (int i = 0; i < lasersArr.size(); i++){
 			g.drawOval(
-				enemiesArr.get(i).position[0], 
-				enemiesArr.get(i).position[1], 
-				enemiesArr.get(i).size[0],
-				enemiesArr.get(i).size[1]
+				lasersArr.get(i).position[0], 
+				lasersArr.get(i).position[1], 
+				lasersArr.get(i).size[0],
+				lasersArr.get(i).size[1]
 			);
 		}
 
 		for (int i = 0; i < shipsArr.size(); i++){
 			g.drawOval(
-				enemiesArr.get(i).position[0], 
-				enemiesArr.get(i).position[1], 
-				enemiesArr.get(i).size[0],
-				enemiesArr.get(i).size[1]
+				shipsArr.get(i).position[0], 
+				shipsArr.get(i).position[1], 
+				shipsArr.get(i).size[0],
+				shipsArr.get(i).size[1]
 			);
 		}
 	}
