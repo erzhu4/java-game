@@ -11,15 +11,15 @@ public class GameObject implements GameMovableElement  {
 	protected CoolGame game;
 
 	public GameObject(int[] startPositionArg, int[] velocityArg, int[] sizeArg, CoolGame gameArg){
-		position = startPositionArg;
-		velocity = velocityArg;
-		size = sizeArg;
-		game = gameArg;
+		this.position = startPositionArg;
+		this.velocity = velocityArg;
+		this.size = sizeArg;
+		this.game = gameArg;
 	}
 
 	public void move(){
-		position[0] += velocity[0];
-		position[1] += velocity[1];
+		this.position[0] += this.velocity[0];
+		this.position[1] += this.velocity[1];
 	}
 
 	public void checkColide(){}

@@ -3,15 +3,18 @@ package coolgame;
 import gamepanel.*;
 import gameobjects.*;
 
+import java.awt.event.*;
+
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javax.swing.JFrame;
 
-public class CoolGame{
+public class CoolGame implements KeyListener {
 
-	private JFrame frame;
+	public JFrame frame;
 	private GamePanel gamepanel;
 
 	public int width = 800;
@@ -34,28 +37,40 @@ public class CoolGame{
 	 		iterateGame();
 	   	}
 	}
+
+	public void keyPressed(KeyEvent e){
+		// System.out.println("action performed");
+	}
+
+	public void keyReleased(KeyEvent e){
+		// System.out.println("released");
+	}
+
+	public void keyTyped(KeyEvent e){}
+
 	
 	public CoolGame(JFrame jframe){
-		frame = jframe;
+		this.frame = jframe;
+		this.frame.addKeyListener(this);
 	}
 
 	public void start(){
-		frame.setSize(width + 50, height);
-        frame.setVisible(true);
+		this.frame.setSize(this.width + 50, this.height);
+        this.frame.setVisible(true);
 
 		setUpGame();
-        gamepanel = new GamePanel(enemies, lasers, ship, width + 50, height);
-        frame.add(gamepanel);
+        this.gamepanel = new GamePanel(this.enemies, this.lasers, this.ship, this.width + 50, this.height);
+        this.frame.add(this.gamepanel);
 		Timer timer = new Timer();
-		timer.schedule(new IterateGameTask(), 1000, 1000/gameFPS);
+		timer.schedule(new IterateGameTask(), 1000, 1000/this.gameFPS);
 	}
 
 	public void removeEnemy(GameObject enemy){
-		enemies.remove(enemy);
+		this.enemies.remove(enemy);
 	}
 
 	public void removeLaser(GameObject laser){
-		lasers.remove(laser);
+		this.lasers.remove(laser);
 	}
 
 	private void setUpGame(){
@@ -64,7 +79,7 @@ public class CoolGame{
 	}
 
 	private void fillEnemies(){
-		int missingEnemies = numOfEnemies - enemies.size();
+		int missingEnemies = this.numOfEnemies - this.enemies.size();
 
 		if (missingEnemies <= 0){
 			return;
@@ -72,7 +87,7 @@ public class CoolGame{
 
 		for (int i = 0; i < missingEnemies; i++){
 			Random rand = new Random();
-			enemies.add(new Enemy(
+			this.enemies.add(new Enemy(
 					new int[]{rand.nextInt(width),10}, 
 					new int[]{0,rand.nextInt(3) + 1},
 					this
@@ -82,7 +97,7 @@ public class CoolGame{
 	}
 
 	private void createShip(){
-		ship.add(new Ship(
+		this.ship.add(new Ship(
 				new int[]{width / 2, height - 75},
 				this
 			)
@@ -90,12 +105,12 @@ public class CoolGame{
 	}
 
 	private void iterateGame(){
-		for (int i = 0; i < enemies.size(); i++){
-			enemies.get(i).move();
-			enemies.get(i).checkColide();
+		for (int i = 0; i < this.enemies.size(); i++){
+			this.enemies.get(i).checkColide();
+			this.enemies.get(i).move();
 		}
 		fillEnemies();
-		gamepanel.repaint();
+		this.gamepanel.repaint();
 	}
 
 }
