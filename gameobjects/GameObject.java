@@ -1,10 +1,8 @@
 package gameobjects;
 
-import coolgame.*;
+import coolgame.CoolGame;
 
-import java.lang.*;
-
-public class GameObject implements GameMovableElement  {
+public abstract class GameObject implements GameMovableElement  {
 
 	public int[] position;
 	public int[] velocity;

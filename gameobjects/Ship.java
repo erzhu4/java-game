@@ -1,12 +1,10 @@
 package gameobjects;
 
-import coolgame.*;
-
 import java.awt.event.*;
 
 public class Ship extends GameObject implements KeyListener {
 
-	public Ship(int[] startPositionArg, CoolGame gameArg){
+	public Ship(int[] startPositionArg, coolgame.CoolGame gameArg){
 		super(startPositionArg, new int[]{0,0}, new int[]{40,40}, gameArg);
 		gameArg.frame.addKeyListener(this);
 	}
