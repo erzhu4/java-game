@@ -15,7 +15,7 @@ public class Base {
 		System.out.println("Start Main");
 
 
-		JFrame frame = createFrame("This is the header!!!!");
+		JFrame frame = createFrame("Cool Java Game");
 
 		CoolGame game1 = new CoolGame(frame);
 

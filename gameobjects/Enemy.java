@@ -7,8 +7,7 @@ public class Enemy extends GameObject {
 	}
 
 	public void checkColide(){
-		if (this.position[1] >= this.game.height - this.size[1]){
-			// position[1] = size[1] / 2;
+		if (this.checkOutOfBounds()){
 			this.game.removeEnemy(this);
 		}
 	}

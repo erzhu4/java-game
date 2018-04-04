@@ -4,8 +4,10 @@ import java.awt.event.*;
 
 public class Ship extends GameObject implements KeyListener {
 
+	public static int shipSize = 60;
+
 	public Ship(int[] startPositionArg, coolgame.CoolGame gameArg){
-		super(startPositionArg, new int[]{0,0}, new int[]{40,40}, gameArg);
+		super(startPositionArg, new int[]{0,0}, new int[]{Ship.shipSize, Ship.shipSize}, gameArg, "images/f18.jpg");
 		gameArg.frame.addKeyListener(this);
 	}
 

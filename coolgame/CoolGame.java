@@ -16,7 +16,7 @@ public class CoolGame {
 	private GamePanel gamepanel;
 
 	public int width = 800;
-	public int height = 600;
+	public int height = 800;
 
 	private int numOfEnemies = 15;
 	private int gameFPS = 32;
@@ -41,7 +41,7 @@ public class CoolGame {
 		this.frame = jframe;
 	}
 
-	public void start(){
+	public void start() {
 		this.frame.setSize(this.width + 50, this.height);
         this.frame.setVisible(true);
 
@@ -84,8 +84,8 @@ public class CoolGame {
 		for (int i = 0; i < missingEnemies; i++){
 			Random rand = new Random();
 			this.enemies.add(new Enemy(
-					new int[]{rand.nextInt(width),10}, 
-					new int[]{0,rand.nextInt(3) + 1},
+					new int[]{rand.nextInt(width) + 5, 10}, 
+					new int[]{0, rand.nextInt(3) + 1},
 					this
 				)
 			);
@@ -94,7 +94,7 @@ public class CoolGame {
 
 	private void createShip(){
 		this.ship.add(new Ship(
-				new int[]{width / 2, height - 75},
+				new int[]{width / 2, height - (Ship.shipSize * 2)},
 				this
 			)
 		);

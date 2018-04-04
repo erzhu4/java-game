@@ -24,11 +24,13 @@ public class GamePanel extends JPanel {
 	public void paint(Graphics g){
 		g.setColor(Color.white);
 		for (int i = 0; i < enemiesArr.size(); i++){
-			g.drawOval(
+			g.drawImage(
+				enemiesArr.get(i).image,
 				enemiesArr.get(i).position[0], 
 				enemiesArr.get(i).position[1], 
 				enemiesArr.get(i).size[0],
-				enemiesArr.get(i).size[1]
+				enemiesArr.get(i).size[1],
+				null
 			);
 		}
 
@@ -42,11 +44,13 @@ public class GamePanel extends JPanel {
 		}
 
 		for (int i = 0; i < shipsArr.size(); i++){
-			g.drawOval(
+			g.drawImage(
+				shipsArr.get(i).image, 
 				shipsArr.get(i).position[0], 
 				shipsArr.get(i).position[1], 
-				shipsArr.get(i).size[0],
-				shipsArr.get(i).size[1]
+				shipsArr.get(i).size[0], 
+				shipsArr.get(i).size[1], 
+				null
 			);
 		}
 	}
