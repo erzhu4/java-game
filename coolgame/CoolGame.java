@@ -24,6 +24,7 @@ public class CoolGame {
 	public ArrayList<GameObject> enemies = new ArrayList<GameObject>();
 	public ArrayList<GameObject> ship = new ArrayList<GameObject>();
 	public ArrayList<GameObject> lasers = new ArrayList<GameObject>();
+	public ArrayList<GameObject> allGameObjects = new ArrayList<GameObject>();
 
 	private int counter = 0;
 

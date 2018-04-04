@@ -4,6 +4,7 @@ public class Laser extends GameObject {
 
 	public Laser(int[] startPositionArg, int xVelocity, coolgame.CoolGame gameArg){
 		super(startPositionArg, new int[]{xVelocity, -20}, new int[]{5,5}, gameArg);
+		this.type = "laser";
 	}
 
 	public void checkColide(){

@@ -12,6 +12,7 @@ public abstract class GameObject implements GameMovableElement  {
 	public int[] position;
 	public int[] velocity;
 	public int[] size;
+	public String type = null;
 	public BufferedImage image;
 
 	protected CoolGame game;
@@ -41,6 +42,8 @@ public abstract class GameObject implements GameMovableElement  {
 		return (
 			this.position[1] >= this.game.height - this.size[1] 
 			|| this.position[1] < 0
+			|| this.position[0] < 0
+			|| this.position[0] >= this.game.height - this.size[0] 
 		);
 	}
 

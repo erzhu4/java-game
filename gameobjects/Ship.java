@@ -9,24 +9,24 @@ public class Ship extends GameObject implements KeyListener {
 	public Ship(int[] startPositionArg, coolgame.CoolGame gameArg){
 		super(startPositionArg, new int[]{0,0}, new int[]{Ship.shipSize, Ship.shipSize}, gameArg, "images/f18.jpg");
 		gameArg.frame.addKeyListener(this);
+		this.type = "ship";
 	}
 
 	public void keyPressed(KeyEvent e){
 		char key = e.getKeyChar();
 		int keyInt = e.getKeyCode();
-		// if (key == 'a'){
-		// 	this.velocity[0] = -2;
-		// } else if (key == 'd'){
-		// 	this.velocity[0] = 2;
-		// } else if (key == ' '){
-		// 	System.out.println("SHOOT!!!");
-		// }
 		switch (keyInt){
-			case 39:
+			case 39: // right
 				this.velocity[0] = 6;
 				break;
-			case 37:
+			case 37: // left
 				this.velocity[0] = -6;
+				break;
+			case 38: //up
+				this.velocity[1] = -6;
+				break;
+			case 40: // down
+				this.velocity[1] = 6;
 				break;
 		}
 		if (key == ' '){
@@ -38,29 +38,41 @@ public class Ship extends GameObject implements KeyListener {
 	public void keyReleased(KeyEvent e){
 		int keyInt = e.getKeyCode();
 		switch (keyInt){
-			case 39:
+			case 39: // right
 				if (this.velocity[0] > 0){
 					this.velocity[0] = 0;
 				}
 				break;
-			case 37:
+			case 37: // left
 				if (this.velocity[0] < 0){
-					this.velocity[0] = 0;	
+					this.velocity[0] = 0;
 				}
 				break;
+			case 38: //up
+				if (this.velocity[1] < 0){
+					this.velocity[1] = 0;
+				}
+			case 40: // down
+				if (this.velocity[1] > 0){
+					this.velocity[1] = 0;
+				}
 		}
 	}
 
 	public void keyTyped(KeyEvent e){}
 
-
 	public void checkColide(){
-		if (this.position[0] > this.game.width - this.size[0]){
-			this.position[0] -= this.size[0] / 4;
+		if (this.checkOutOfBounds()){
 			stop();
-		} else if (this.position[0] < this.size[0]){
-			this.position[0] += this.size[0] / 4;
-			stop();
+			if (this.position[0] <= 0){
+				this.position[0] += 6;
+			} else if (this.position[0] >= this.game.width - this.size[0]){
+				this.position[0] -= 6;
+			} else if (this.position[1] <= 0){
+				this.position[1] += 6;
+			} else if (this.position[1] >= this.game.height - this.size[1]){
+				this.position[1] -= 6;
+			}
 		}
 	}
 
