@@ -29,8 +29,8 @@ javac Base.java
 java Base
 ```
 #### Controls
-LEFT_ARROW: move left. 
-RIGHT_ARROW: move right. 
-UP_ARROW: move up. 
-DOWN_ARROW: move down. 
+LEFT_ARROW: move left<br/>
+RIGHT_ARROW: move right<br/>
+UP_ARROW: move up<br/>
+DOWN_ARROW: move down<br/> 
 SPACE_BAR: shoot
