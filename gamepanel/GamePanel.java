@@ -21,11 +21,11 @@ public class GamePanel extends JPanel {
 		g.setColor(Color.white);
 		for (int i = 0; i < objects.size(); i++){
 			g.drawImage(
-				objects.get(i).image, 
+				objects.get(i).image,
 				objects.get(i).position[0] - (objects.get(i).size[0] / 2),
 				objects.get(i).position[1] - (objects.get(i).size[1] / 2),
-				objects.get(i).size[0], 
-				objects.get(i).size[1], 
+				objects.get(i).size[0],
+				objects.get(i).size[1],
 				null
 			);
 		}
