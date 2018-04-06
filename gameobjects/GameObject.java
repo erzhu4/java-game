@@ -50,6 +50,9 @@ public abstract class GameObject implements GameMovableElement  {
 	public void checkColide(){}
 
 	public boolean checkCollisionWith(GameObject otherObject){
+		if (this == otherObject){
+			return false;
+		}
 		double distance = this.getDistance(this.position, otherObject.position);
 		return distance < ((this.size[0]) + (otherObject.size[0]));
 	}

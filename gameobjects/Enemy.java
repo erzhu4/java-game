@@ -9,7 +9,7 @@ public class Enemy extends GameObject {
 
 	public void checkColide(){
 		if (this.checkOutOfBounds()){
-			this.game.removeEnemy(this);
+			this.game.removeObject(this);
 		}
 	}
 

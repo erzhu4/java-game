@@ -8,14 +8,18 @@ public class Laser extends GameObject {
 	}
 
 	public void checkColide(){
-		if (this.position[1] < this.size[1]){
-			this.game.removeLaser(this);
+		if (this.checkOutOfBounds()){
+			this.game.removeObject(this);
 		}
 
-		for (int i = 0; i < this.game.enemies.size(); i++){
-			if ( this.checkCollisionWith(this.game.enemies.get(i)) ){
-				this.game.removeEnemy(this.game.enemies.get(i));
-				this.game.removeLaser(this);
+		for (int i = 0; i < this.game.allGameObjects.size(); i++){
+			if (this.game.allGameObjects.get(i).type != "enemy"){
+				continue;
+			}
+
+			if ( this.checkCollisionWith(this.game.allGameObjects.get(i)) ){
+				this.game.removeObject(this.game.allGameObjects.get(i));
+				this.game.removeObject(this);
 				return;
 			}
 		}
