@@ -82,7 +82,7 @@ public class Ship extends GameObject implements KeyListener {
 	}
 
 	private void fireLaser(){
-		this.game.createLaser(new int[]{this.position[0] + (this.size[0] / 2), this.position[1]}, this.velocity[0] / 2);
+		this.game.createLaser(new int[]{this.position[0], this.position[1]}, this.velocity[0] / 2);
 	}
 
 }
