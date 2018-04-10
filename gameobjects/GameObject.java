@@ -47,7 +47,11 @@ public abstract class GameObject implements GameMovableElement  {
 		);
 	}
 
-	public void checkColide(){}
+	public void checkColide(){
+		if (this.checkOutOfBounds()){
+			this.game.removeObject(this);
+		}
+	}
 
 	public boolean checkCollisionWith(GameObject otherObject){
 		if (this == otherObject){

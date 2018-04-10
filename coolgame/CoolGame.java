@@ -63,6 +63,10 @@ public class CoolGame {
 		this.allGameObjects.remove(obj);
 	}
 
+	public void addObject(GameObject obj){
+		this.allGameObjects.add(obj);
+	}
+
 	public void createLaser(int[] position, int xVelocity){
 		this.allGameObjects.add(new Laser(
 				position,
