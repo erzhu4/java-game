@@ -18,7 +18,7 @@ public class Enemy extends GameObject {
 			this.game
 		);
 		GameObject debris2 = new Debris(
-			this.position, 
+			new int[]{this.position[0], this.position[1]},
 			new int[]{rand.nextInt(15) + 5, (rand.nextInt(15) + 5) * -1}, 
 			this.game
 		);
