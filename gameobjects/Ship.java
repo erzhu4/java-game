@@ -7,7 +7,7 @@ public class Ship extends GameObject implements KeyListener {
 	public static int shipSize = 60;
 
 	public Ship(int[] startPositionArg, coolgame.CoolGame gameArg){
-		super(startPositionArg, new int[]{0,0}, new int[]{Ship.shipSize, Ship.shipSize}, gameArg, "images/fighter.gif");
+		super(startPositionArg, new int[]{0,0}, new int[]{Ship.shipSize, Ship.shipSize}, gameArg, "images/fighter.png");
 		gameArg.frame.addKeyListener(this);
 		this.type = "ship";
 	}
