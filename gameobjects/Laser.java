@@ -18,8 +18,8 @@ public class Laser extends GameObject {
 			}
 
 			if ( this.checkCollisionWith(this.game.allGameObjects.get(i)) ){
-				this.game.removeObject(this.game.allGameObjects.get(i));
-				this.game.removeObject(this);
+				this.game.allGameObjects.get(i).destroy();
+				this.destroy();
 				return;
 			}
 		}

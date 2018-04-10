@@ -24,6 +24,8 @@ public class CoolGame {
 
 	private int counter = 0;
 
+	public static Random random = new Random();
+
 	class IterateGameTask extends TimerTask {
 
 		IterateGameTask(){}
@@ -89,7 +91,7 @@ public class CoolGame {
 		}
 
 		for (int i = 0; i < missingEnemies; i++){
-			Random rand = new Random();
+			Random rand = CoolGame.random;
 			this.allGameObjects.add(new Enemy(
 					new int[]{rand.nextInt(width) + 5, 10}, 
 					new int[]{0, rand.nextInt(3) + 1},

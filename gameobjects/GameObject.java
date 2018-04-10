@@ -43,7 +43,7 @@ public abstract class GameObject implements GameMovableElement  {
 			this.position[1] >= this.game.height - this.size[1] 
 			|| this.position[1] < 0
 			|| this.position[0] < 0
-			|| this.position[0] >= this.game.height - this.size[0] 
+			|| this.position[0] >= this.game.width - this.size[0] 
 		);
 	}
 
@@ -51,6 +51,11 @@ public abstract class GameObject implements GameMovableElement  {
 		if (this.checkOutOfBounds()){
 			this.game.removeObject(this);
 		}
+	}
+
+
+	public void destroy(){
+		this.game.removeObject(this);
 	}
 
 	public boolean checkCollisionWith(GameObject otherObject){
